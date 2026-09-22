@@ -1,0 +1,127 @@
+:host {
+  display: block;
+  min-height: 100vh;
+}
+
+.cadastro-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #f1eeee 0%, #f6eff1 40%, #fff 100%);
+  padding: 32px 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.cadastro-card {
+  width: min(680px, 100%);
+  background: rgba(251, 250, 248, 0.94);
+  border: 1px solid rgba(92, 38, 56, 0.1);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 28px 60px rgba(70, 43, 51, 0.12);
+}
+
+.cadastro-form-container {
+  padding: 40px 34px;
+  background: #fbfaf8;
+}
+
+.form-header {
+  margin-bottom: 26px;
+}
+
+.subtitle {
+  color: #8f3f5c;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.form-header h2 {
+  color: #2b1d22;
+  font-size: 2.2rem;
+}
+
+.cadastro-form {
+  display: grid;
+  gap: 18px;
+}
+
+.cadastro-form label:not(.lgpd-row) {
+  display: grid;
+  gap: 8px;
+  color: #3f2b32;
+  font-weight: 600;
+}
+
+.cadastro-form input {
+  width: 100%;
+  border: 1px solid rgba(92, 38, 56, 0.16);
+  background: #faf9f8;
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 1rem;
+  outline: none;
+}
+
+.cadastro-form input:focus {
+  border-color: rgba(143, 63, 92, 0.6);
+  box-shadow: 0 0 0 4px rgba(143, 63, 92, 0.08);
+}
+
+.cadastro-form .lgpd-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #64404b;
+  font-size: 0.72rem;
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.cadastro-form .lgpd-row input {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  padding: 0;
+  accent-color: #8f3f5c;
+}
+
+.cadastro-form button {
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 8px;
+  background: #8f3f5c;
+  color: #fff;
+  box-shadow: 0 14px 24px rgba(92, 38, 56, 0.2);
+}
+
+.cadastro-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.login-text {
+  margin-top: 20px;
+  text-align: center;
+  color: #64404b;
+}
+
+.login-text a {
+  color: #8f3f5c;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+@media (max-width: 480px) {
+  .cadastro-form-container {
+    padding: 28px 20px;
+  }
+}

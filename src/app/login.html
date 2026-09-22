@@ -1,0 +1,31 @@
+<main class="login-page">
+  <section class="login-card single-column">
+    <div class="login-form-container">
+      <div class="form-header">
+        <p class="subtitle">Acessar conta</p>
+        <h2>Entrar</h2>
+      </div>
+
+      <form class="login-form" (submit)="onSubmit($event)">
+        <label>
+          <span>E-mail</span>
+          <input type="email" placeholder="seuemail@email.com" />
+        </label>
+
+        <label>
+          <span>Senha</span>
+          <input type="password" placeholder="Digite sua senha" />
+        </label>
+
+        <label class="lgpd-row">
+          <input type="checkbox" [(ngModel)]="lgpdAccepted" name="lgpdAccepted" />
+          <span>Concordo com os termos da LGPD e autorizo o uso dos meus dados para acesso ao sistema. *</span>
+        </label>
+
+        <button type="submit" [disabled]="!lgpdAccepted">Entrar</button>
+      </form>
+
+      <p class="register-text">Ainda não tem conta? <a routerLink="/cadastro">Criar conta</a></p>
+    </div>
+  </section>
+</main>

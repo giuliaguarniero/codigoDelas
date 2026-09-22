@@ -1,0 +1,46 @@
+<section class="container trilhas-page">
+  <div class="trilhas-header">
+    <p class="eyebrow">Trilhas</p>
+    <h2>Explore por tema</h2>
+  </div>
+
+  <div class="carousel-shell" (mouseenter)="pauseAutoAdvance()" (mouseleave)="resumeAutoAdvance()">
+    <button class="carousel-arrow" type="button" (click)="previous()" aria-label="Tema anterior">
+      ‹
+    </button>
+
+    <div class="carousel-track">
+      <article class="slide-card" [class.animating]="isTransitioning">
+        <div class="slide-content">
+          <span class="slide-tag">{{ currentSlide.tag }}</span>
+          <h3>{{ currentSlide.title }}</h3>
+          <p>{{ currentSlide.description }}</p>
+          <a class="video-link" [href]="currentSlide.href" target="_blank" rel="noreferrer" [attr.aria-label]="'Abrir vídeo sobre ' + currentSlide.title">
+            Abrir vídeo
+          </a>
+        </div>
+        @if (currentSlide.image) {
+          <img class="slide-icon" [src]="currentSlide.image" [alt]="'Ícone de ' + currentSlide.title">
+        }
+      </article>
+    </div>
+
+    <button class="carousel-arrow" type="button" (click)="next()" aria-label="Próximo tema">
+      ›
+    </button>
+  </div>
+
+  <div class="carousel-dots" aria-label="Seleção de trilha">
+    @for (slide of slides; track slide.title; let i = $index) {
+      <button
+        type="button"
+        class="dot"
+        [class.active]="i === currentIndex"
+        (click)="goTo(i)"
+        [attr.aria-label]="'Ir para ' + slide.title"
+      ></button>
+    }
+  </div>
+
+  <p class="back-home"><a routerLink="/">Voltar para Home</a></p>
+</section>
