@@ -15,35 +15,35 @@ export class TrilhasComponent implements OnDestroy {
       tag: 'Fundamentos',
       description: 'Desenvolva raciocínio estruturado para resolver problemas com clareza e eficiência.',
       image: '/img/logica.png',
-      href: '#'
+      href: 'https://youtu.be/gMxQ8vxH9Vk?si=f7tMZTSGsVzdkoXG'
     },
     {
       title: 'Linguagens de Programação',
       tag: 'Aprendizado',
       description: 'Explore as principais linguagens e entenda quando cada uma faz mais sentido.',
       image: '/img/js.png',
-      href: '#'
+      href: 'https://youtu.be/Z7mnxUI4u00?si=Q8x2ydwIe_kDnVCS'
     },
     {
       title: 'Front-end',
       tag: 'Interface',
       description: 'Aprenda a criar experiências visuais, responsivas e funcionais na web.',
       image: '/img/html.png',
-      href: '#'
+      href: 'https://youtu.be/Fhy-5CtVkiM?si=syZuzm8uVYeYr5eM'
     },
     {
       title: 'Back-end',
       tag: 'Servidor',
       description: 'Entenda como a lógica do sistema funciona por trás da interface e dos dados.',
       image: '/img/terminal.png',
-      href: '#'
+      href: 'https://youtu.be/d0KaNzAMVO4?si=O5En8Yuhm1rdN5r_'
     },
     {
       title: 'IA',
       tag: 'Inovação',
       description: 'Descubra como inteligência artificial pode ampliar ideias, automações e projetos.',
       image: '/img/IA.png',
-      href: '#'
+      href: 'https://www.youtube.com/live/bji41uwqflk?si=DYrG2iMECr4jSok8'
     }
   ];
 

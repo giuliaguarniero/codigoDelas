@@ -23,6 +23,9 @@ import { Router, RouterOutlet, RouterLink } from '@angular/router';
             <a routerLink="/trilhas">Trilhas</a>
             <a routerLink="/login">Login</a>
           </nav>
+          @if (!isLoginPage) {
+            <button class="header-logout" type="button" (click)="logout()">Logout</button>
+          }
         </div>
       </header>
 
@@ -54,13 +57,15 @@ import { Router, RouterOutlet, RouterLink } from '@angular/router';
     .app-root{min-height:100vh;display:flex;flex-direction:column}
     .container{max-width:1000px;margin:0 auto;padding:0 16px}
     .site-header{position:relative;background:linear-gradient(90deg,#ff8db1 0%,#ff5a9e 100%);color:#fff;padding:9px 0}
-    .site-header .container{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .site-header .container{position:relative;display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none}
     .brand img{width:32px;height:32px;object-fit:contain}
     .site-header h1{margin:0;font-size:1.3rem}
     .site-header nav{display:flex;align-items:center;gap:18px}
     .site-header nav a{color:#fff;text-decoration:none;position:relative;transition:box-shadow .18s ease,transform .18s ease;padding:6px 4px;border-radius:8px;font:inherit;font-size:inherit;line-height:inherit}
     .site-header nav a:hover{box-shadow:0 8px 20px rgba(255,90,158,0.25);transform:translateY(-3px)}
+    .header-logout{position:absolute;top:50%;right:-96px;transform:translateY(-50%);border:1px solid rgba(255,255,255,0.72);border-radius:8px;padding:7px 12px;background:transparent;color:#fff;font:inherit;font-weight:700;cursor:pointer;transition:background .18s ease,color .18s ease,transform .18s ease}
+    .header-logout:hover{background:#fff;color:#8f3f5c;transform:translateY(calc(-50% - 2px))}
     .menu-toggle{display:none;position:absolute;top:50%;left:12px;transform:translateY(-50%);width:36px;height:36px;padding:8px;border:0;border-radius:8px;background:#8f3f5c;box-shadow:0 6px 16px rgba(43,27,35,0.22);cursor:pointer;z-index:20}
     .menu-toggle span{display:block;height:2px;margin:4px 0;border-radius:2px;background:#fff}
     .menu-backdrop{position:fixed;inset:0;z-index:29;background:rgba(43,29,34,0.28);opacity:0;pointer-events:none;transition:opacity .2s ease}
@@ -83,6 +88,7 @@ import { Router, RouterOutlet, RouterLink } from '@angular/router';
       .brand{gap:6px;margin:0 auto}
       .brand img{width:24px;height:24px}
       .site-header h1{font-size:1.05rem}
+      .header-logout{padding:6px 9px;font-size:.82rem}
       .side-menu{width:min(250px,78vw);padding:18px 14px}
       .side-menu-header{padding:4px 2px 18px;font-size:1.1rem}
       .side-nav a,.side-nav button{padding:11px 12px}

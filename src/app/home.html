@@ -1,27 +1,66 @@
 <main class="site-main container">
-  <section class="hero-wrap">
-    <div class="hero-box" role="region" aria-label="Hero Código Delas">
-      <div class="hero-copy">
-        <h1 class="hero-title"><span>CÓDIGO</span> DELAS</h1>
-        <p class="hero-lead">Aprenda. Crie. Transforme.</p>
-        <a class="hero-cta" routerLink="/login">COMEÇAR AGORA</a>
+  <div class="home-feature-grid">
+    <section class="hero-wrap">
+      <div class="hero-box" role="region" aria-label="Hero Código Delas">
+        <div class="hero-copy">
+          <h1 class="hero-title"><span>CÓDIGO</span> DELAS</h1>
+          <p class="hero-lead">Aprenda. Crie. Transforme.</p>
+          <a class="hero-cta" routerLink="/login">COMEÇAR AGORA</a>
+        </div>
       </div>
+      <section class="intro" aria-label="Sobre o Código Delas">
+        <p class="intro-text">Um espaço pensado para mulheres que querem transformar, aprender programação e ganhar confiança no mercado da tecnologia.</p>
+        <ul class="benefits">
+          <li><span class="benefit-mark" aria-hidden="true">✓</span><span>Conteúdo pensado para começar com segurança</span></li>
+          <li><span class="benefit-mark" aria-hidden="true">✓</span><span>Ambiente seguro para o aprendizado</span></li>
+        </ul>
+      </section>
+    </section>
+    <div class="home-side-column">
+      <section class="testimonial" aria-label="Depoimento sobre começar na programação">
+        <div class="testimonial-image-wrap">
+          <img class="testimonial-image" src="/img/garotas%20codando.jpg" alt="Duas garotas estudando programação juntas" />
+        </div>
+        <figure class="testimonial-copy">
+          <span class="testimonial-label">Um começo possível</span>
+          <blockquote>“Quando comecei a estudar programação, eu achava que precisava saber tudo antes de tentar. Encontrar um espaço como o Código Delas me ajudaria a dar os primeiros passos com mais calma, tirar dúvidas e perceber que aprender também é praticar aos poucos.”</blockquote>
+        </figure>
+      </section>
     </div>
-  </section>
-    <section class="testimonial container" aria-label="Depoimento sobre começar na programação">
-      <div class="testimonial-image-wrap">
-        <img class="testimonial-image" src="/img/garotas%20codando.jpg" alt="Duas garotas estudando programação juntas" />
+  </div>
+
+  <section class="learning-preview" aria-labelledby="learning-preview-title" (mouseenter)="pausePreview()" (mouseleave)="resumePreview()">
+    <div class="preview-heading">
+      <h2 id="learning-preview-title">Uma trilha para cada descoberta</h2>
+      <span class="preview-counter">{{ activeTopic + 1 }} / {{ topics.length }}</span>
+    </div>
+
+    <div class="preview-stage" [style.--topic-color]="currentTopic.color">
+      <div class="preview-copy">
+        @if (currentTopic.label) {
+          <span class="preview-label">{{ currentTopic.label }}</span>
+        }
+        <h3>{{ currentTopic.title }}</h3>
+        <p>{{ currentTopic.description }}</p>
+        <a class="preview-link" routerLink="/trilhas">Explorar trilhas <span aria-hidden="true">→</span></a>
       </div>
-      <figure class="testimonial-copy">
-        <span class="testimonial-label">Um começo possível</span>
-        <blockquote>“Quando comecei a estudar programação, eu achava que precisava saber tudo antes de tentar. Encontrar um espaço como o Código Delas me ajudaria a dar os primeiros passos com mais calma, tirar dúvidas e perceber que aprender também é praticar aos poucos.”</blockquote>
-      </figure>
-    </section>
-    <section class="intro container" aria-label="Sobre o Código Delas">
-      <p class="intro-text">Um espaço pensado para mulheres que querem transformar, aprender programação e ganhar confiança no mercado da tecnologia.</p>
-      <ul class="benefits">
-        <li><span class="benefit-mark" aria-hidden="true">✓</span><span>Conteúdo pensado para começar com segurança</span></li>
-        <li><span class="benefit-mark" aria-hidden="true">✓</span><span>Ambiente seguro para o aprendizado</span></li>
-      </ul>
-    </section>
+      <div class="preview-art" aria-hidden="true">
+        <span class="preview-orbit preview-orbit-one"></span>
+        <span class="preview-orbit preview-orbit-two"></span>
+        <img [src]="currentTopic.image" alt="" />
+      </div>
+      <button class="preview-arrow preview-arrow-left" type="button" (click)="previousTopic()" aria-label="Assunto anterior">←</button>
+      <button class="preview-arrow preview-arrow-right" type="button" (click)="nextTopic()" aria-label="Próximo assunto">→</button>
+    </div>
+
+    <div class="topic-selector" role="tablist" aria-label="Assuntos do curso">
+      @for (topic of topics; track topic.title; let i = $index) {
+        <button type="button" role="tab" class="topic-tab" [class.active]="i === activeTopic" [attr.aria-selected]="i === activeTopic" [attr.tabindex]="i === activeTopic ? 0 : -1" (click)="selectTopic(i)">
+          <span class="topic-number">0{{ i + 1 }}</span>
+          <span>{{ topic.title }}</span>
+        </button>
+      }
+    </div>
+    <p class="preview-followup">Tudo isso com conforto, segurança e acompanhamento de outras mulheres que entendem as dificuldades.</p>
+  </section>
 </main>
